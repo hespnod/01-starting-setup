@@ -2,7 +2,7 @@
 import ExpenseDate from './ExpenseDate';
 import ExpenseDeatils from './ExpenseDetails';
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
     return (
         <div className='expenses'>
             <ExpenseDate date={props.date} />
