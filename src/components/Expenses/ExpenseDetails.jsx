@@ -5,8 +5,19 @@ import { useState } from 'react';
 const ExpenseDeatils = (props)=>{
 
     const[amount,setAmount] = useState(props.amount);
+    const[btn,setBtn] = useState('Make 100');
+    const [isCheck, setIsCheck] = useState(false);
     const handleClick = ()=>{
-        setAmount(100);
+        if(!isCheck){
+            setAmount(100);
+            let amt = 'Make ' + props.amount;
+            setBtn(amt);
+        }else{
+            setAmount(props.amount);
+            setBtn('Make 100');
+        }
+        console.log(isCheck);
+        setIsCheck(!isCheck);
     }
 
     return(
@@ -16,7 +27,7 @@ const ExpenseDeatils = (props)=>{
                 <h2>{props.title}</h2>
                 <div className='expense-item__price'>{amount} Rs</div>
             </div> 
-            <button onClick={handleClick}>Make 100</button>
+            <button onClick={handleClick}>{btn}</button>
         </Card>
     );
 }

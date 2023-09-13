@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ExpenseForm.css'
 
 const ExpenseForm = ()=> {
+
+    const[userDetails, setUserDetails] = useState({
+        enterTitle:'',
+        enterAmount:'',
+        enterDate:''
+    })
+
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log("I'm inside");
-        console.log(e.target[0].value);
-        console.log(e.target[1].value);
-        console.log(e.target[2].value);
+        setUserDetails({
+            ...userDetails,
+            enterTitle:e.target[0].value,
+            enterAmount:e.target[1].value,
+            enterDate:e.target[2].value
+        })
+        console.log(userDetails);
     }
   return (
     <form onSubmit={handleSubmit}>
