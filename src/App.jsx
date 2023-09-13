@@ -1,6 +1,7 @@
 import { useState } from "react";
-import ExpenseItem from "./components/Expenses/ExpenseItem";
+// import ExpenseItem from "./components/Expenses/ExpenseItem";
 import NewExpenses from "./components/NewExpenses/NewExpenses";
+import Expenses from "./components/Expenses/Expenses";
 
 const App = () => {
   const expenses = [
@@ -24,9 +25,10 @@ const App = () => {
   return (
     <div>
       <NewExpenses onAddExpense={handleAddExpense} />
-      {dataOnScreen.map((ele) => {
+      {/* {dataOnScreen.map((ele) => {
         return (<ExpenseItem title={ele.title} amount={ele.amount} date={ele.date}></ExpenseItem>)
-      })}
+      })} */}
+      <Expenses items={dataOnScreen}></Expenses>
     </div>
   );
 }
